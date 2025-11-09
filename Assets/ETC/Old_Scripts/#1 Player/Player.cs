@@ -1,5 +1,4 @@
 using System;
-using PlayerOwnedStates;
 using UnityEngine;
 
 public enum PlayerStats
@@ -44,19 +43,6 @@ public class Player : MonoBehaviour
     {
         //_states 초기화
         _states = new State<Player>[StateCount];
-        _states[(int)PlayerStats.BodyIsGround] = new PlayerOwnedStates.BodyIsGround();
-        _states[(int)PlayerStats.HeadIsGround] = new PlayerOwnedStates.HeadIsGround();
-        _states[(int)PlayerStats.CanControlArrow] = new PlayerOwnedStates.CanControlArrow();
-        _states[(int)PlayerStats.IsOnClick] = new PlayerOwnedStates.IsOnClick();
-        _states[(int)PlayerStats.IsFly] = new PlayerOwnedStates.IsFly();
-        _states[(int)PlayerStats.IsArrowOnWall] = new PlayerOwnedStates.IsArrowOnWall();
-        _states[(int)PlayerStats.IsCollisionMethod2] = new PlayerOwnedStates.IsCollisionMethod2();
-        _states[(int)PlayerStats.IsCollision] = new PlayerOwnedStates.IsCollision();
-        _states[(int)PlayerStats.CanShoot] = new PlayerOwnedStates.CanShoot();
-        _states[(int)PlayerStats.CanCombine] = new PlayerOwnedStates.CanCombine();
-        _states[(int)PlayerStats.IsCombine] = new PlayerOwnedStates.IsCombine();
-        _states[(int)PlayerStats.Push] = new PlayerOwnedStates.Push();
-        _states[(int)PlayerStats.HasArrow] = new PlayerOwnedStates.HasArrow();
         
         
         _stateManager = new StateManager<Player>();

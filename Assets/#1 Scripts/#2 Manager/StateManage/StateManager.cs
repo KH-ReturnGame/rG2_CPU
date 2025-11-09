@@ -1,18 +1,18 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 
+//어떤 객체의 상태관리도 담당할 수 있도록 제네릭 클래스를 사용
 public class StateManager<T> where T : class
 {
-    //자식 클래스를 가리킴
+    //관리될 클래스를 의미함
     private T _owner;
-    //현재가지고 있는 모든 상태 리스트
+    //현재가지고 있는 모든 상태 리스트 / 타입은 State타입인데 제네릭 사용해서 일반화
     public List<State<T>> _currentState;
     //가지고 있을 수 있는 상태 개수
     private int _stateCount;
     //가지고 있을 수 있는 상태 종류
     private State<T>[] _states;
 
-    //기본 변수 설정
+    //상태 메니저를 초기화 해주는 메소드
     public void Setup(T owner, int stateCount, State<T>[] states)
     {
         _owner = owner;
