@@ -6,7 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-public class MainMenu : MonoBehaviour
+public partial class Main_Menu : MonoBehaviour
 {
     public GameObject StartButton;
     public GameObject EasyButton;
