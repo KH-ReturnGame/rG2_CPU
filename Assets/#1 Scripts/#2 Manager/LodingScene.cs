@@ -1,17 +1,22 @@
 using System;
 using System.Collections;
 using DependencyInjection;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LodingScene : MonoBehaviour
 {
+    // GameState 주입
     [Inject] private GameState _gameState;
     
-    public void Awake()
-    {
-        Debug.Log(_gameState.targetScene +" / "+ _gameState.isTutorial);
-    }
+    // 씬 목록들
+    public SceneAsset Tutorial_Scene;
+    public SceneAsset MainMenu_Scene;
+    
+    // FillAmount Img
+    public Image lodingImg;
 
     public void Start()
     {
@@ -20,8 +25,25 @@ public class LodingScene : MonoBehaviour
 
     IEnumerator LoadScene()
     {
-        yield return SceneManager.LoadSceneAsync("SceneLoad", LoadSceneMode.Single);
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(_nextScene,_nextMode);
+        AsyncOperation asyncLoad = null;
+        if (_gameState.isTutorial)
+        {
+            asyncLoad = SceneManager.LoadSceneAsync(Tutorial_Scene.name, LoadSceneMode.Single);
+        }
+        else if (_gameState.targetScene == GameState.targetState.MainMenu)
+        {
+            asyncLoad = SceneManager.LoadSceneAsync(MainMenu_Scene.name, LoadSceneMode.Single);
+        }
+        else if (_gameState.targetScene == GameState.targetState.InGame)
+        {
+            asyncLoad = SceneManager.LoadSceneAsync(MainMenu_Scene.name, LoadSceneMode.Single);
+        }
+        else
+        {
+            Debug.Log("Error to load scene");
+            yield return null;
+        }
+        
         if (asyncLoad != null)
         {
             asyncLoad.allowSceneActivation = false;
@@ -30,62 +52,22 @@ public class LodingScene : MonoBehaviour
             while (true)
             {
                 yield return null;
-                //Debug.Log(asyncLoad.progress);
-                if (asyncLoad.progress < 0.9f)
+                if (asyncLoad.progress < 0.8f)
                 {
-                    GameObject.FindGameObjectWithTag("loding").GetComponent<Image>().fillAmount = asyncLoad.progress;
+                    lodingImg.fillAmount = asyncLoad.progress;
                 }
                 else
                 {
                     timer += Time.deltaTime;
-                    GameObject.FindGameObjectWithTag("loding").GetComponent<Image>().fillAmount =
-                        Mathf.Lerp(0.9f, 1f, timer);
-                    if (GameObject.FindGameObjectWithTag("loding").GetComponent<Image>().fillAmount >= 1f)
+                    lodingImg.fillAmount =
+                        Mathf.Lerp(0.8f, 1f, timer);
+                    if (lodingImg.fillAmount >= 1f)
                     {
                         asyncLoad.allowSceneActivation = true;
-                        Debug.Log("Scene loaded: " + _nextScene);
-                        GameManager.Instance.isLoding = false;
                         yield break;
                     }
                 }
             }
         }
     }
-    
-
-    // IEnumerator LoadScene()
-    // {
-    //     GameManager.Instance.isLoding = true;
-    //     yield return SceneManager.LoadSceneAsync("SceneLoad", LoadSceneMode.Single);
-    //     
-    //     AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(_nextScene,_nextMode);
-    //     if (asyncLoad != null)
-    //     {
-    //         asyncLoad.allowSceneActivation = false;
-    //
-    //         float timer = 0f;
-    //         while (true)
-    //         {
-    //             yield return null;
-    //             //Debug.Log(asyncLoad.progress);
-    //             if (asyncLoad.progress < 0.9f)
-    //             {
-    //                 GameObject.FindGameObjectWithTag("loding").GetComponent<Image>().fillAmount = asyncLoad.progress;
-    //             }
-    //             else
-    //             {
-    //                 timer += Time.deltaTime;
-    //                 GameObject.FindGameObjectWithTag("loding").GetComponent<Image>().fillAmount =
-    //                     Mathf.Lerp(0.9f, 1f, timer);
-    //                 if (GameObject.FindGameObjectWithTag("loding").GetComponent<Image>().fillAmount >= 1f)
-    //                 {
-    //                     asyncLoad.allowSceneActivation = true;
-    //                     Debug.Log("Scene loaded: " + _nextScene);
-    //                     GameManager.Instance.isLoding = false;
-    //                     yield break;
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
 }

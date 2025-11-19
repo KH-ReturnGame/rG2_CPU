@@ -16,10 +16,11 @@ public class GameState : Singleton<GameState>, IDependencyProvider
     }
 
     [Header("PlayInfo")] 
-    public int stage = 0;
+    public int currentArea = 0;
     public string playType = "normal";
     public bool isTutorial = true;
     public targetState targetScene = targetState.InGame;
+    public int targetArea = 0;
 
     void Awake()
     {
