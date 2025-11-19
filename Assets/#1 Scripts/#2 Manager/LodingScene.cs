@@ -14,6 +14,7 @@ public class LodingScene : MonoBehaviour
     // 씬 목록들
     public SceneAsset Tutorial_Scene;
     public SceneAsset MainMenu_Scene;
+    public SceneAsset[] Area_Scenes;
     
     // FillAmount Img
     public Image lodingImg;
@@ -36,7 +37,7 @@ public class LodingScene : MonoBehaviour
         }
         else if (_gameState.targetScene == GameState.targetState.InGame)
         {
-            asyncLoad = SceneManager.LoadSceneAsync(MainMenu_Scene.name, LoadSceneMode.Single);
+            asyncLoad = SceneManager.LoadSceneAsync(Area_Scenes[_gameState.targetArea].name, LoadSceneMode.Single);
         }
         else
         {

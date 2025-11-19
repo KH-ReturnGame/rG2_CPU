@@ -19,6 +19,7 @@ public class GameState : Singleton<GameState>, IDependencyProvider
     public int currentArea = 0;
     public string playType = "normal";
     public bool isTutorial = true;
+    public bool isSpeedrun = false;
     public targetState targetScene = targetState.InGame;
     public int targetArea = 0;
 

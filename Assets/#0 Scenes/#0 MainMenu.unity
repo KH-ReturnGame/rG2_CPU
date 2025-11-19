@@ -1063,10 +1063,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b43360b9c045c592501b0b4537f1ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameState
-  stage: 0
+  currentArea: 0
   playType: normal
-  isTutorial: 1
+  isTutorial: 0
   targetScene: 1
+  targetArea: 0
 --- !u!4 &887496151
 Transform:
   m_ObjectHideFlags: 0
