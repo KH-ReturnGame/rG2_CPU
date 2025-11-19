@@ -5,13 +5,13 @@ using UnityEngine.UI;
 using System.Collections;
 
 //레벨 이외의 호출 가능한 씬들
-public enum Scenes
-{
-    MainMenu,
-    main,
-    EndingScene,
-    SceneLoad,
-}
+// public enum Scenes
+// {
+//     MainMenu,
+//     main,
+//     EndingScene,
+//     SceneLoad,
+// }
 
 public class SceneLoader : MonoBehaviour
 {
@@ -33,20 +33,20 @@ public class SceneLoader : MonoBehaviour
     }
 
     //일반적인 씬 전환
-    public void ChangeScene(Scenes scene, LoadSceneMode mode)
-    {
-        _nextScene = scene.ToString();
-        _nextMode = mode;
-        StartCoroutine(LoadScene());
-    }
+    // public void ChangeScene(Scenes scene, LoadSceneMode mode)
+    // {
+    //     _nextScene = scene.ToString();
+    //     _nextMode = mode;
+    //     StartCoroutine(LoadScene());
+    // }
 
     //코루틴으로 로드해서 로딩 될때까지 기다리다가 씬 로드하기
     IEnumerator LoadScene()
     {
         GameManager.Instance.isLoding = true;
-        yield return SceneManager.LoadSceneAsync("SceneLoad", LoadSceneMode.Single);
+        yield return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("SceneLoad", LoadSceneMode.Single);
         
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(_nextScene,_nextMode);
+        AsyncOperation asyncLoad = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(_nextScene,_nextMode);
         if (asyncLoad != null)
         {
             asyncLoad.allowSceneActivation = false;
@@ -87,14 +87,14 @@ public class SceneLoader : MonoBehaviour
         GameManager.Instance.isLoding = true;
     
         // 로딩 씬 로드
-        yield return SceneManager.LoadSceneAsync("SceneLoad", LoadSceneMode.Single);
+        yield return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("SceneLoad", LoadSceneMode.Single);
     
         // main 씬 비동기 로드
-        AsyncOperation mainLoadOperation = SceneManager.LoadSceneAsync("main", LoadSceneMode.Additive);
+        AsyncOperation mainLoadOperation = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("main", LoadSceneMode.Additive);
         mainLoadOperation.allowSceneActivation = false;
     
         // level 씬 비동기 로드
-        AsyncOperation levelLoadOperation = SceneManager.LoadSceneAsync("Level_" + level, LoadSceneMode.Additive);
+        AsyncOperation levelLoadOperation = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Level_" + level, LoadSceneMode.Additive);
         levelLoadOperation.allowSceneActivation = false;
 
         Image loadingImage = GameObject.FindGameObjectWithTag("loding").GetComponent<Image>();
@@ -183,21 +183,21 @@ public class SceneLoader : MonoBehaviour
     //기타 씬 로드 관련 함수들
     public void UnLoadScene(string scene)
     {
-        SceneManager.UnloadSceneAsync(scene);
+        UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(scene);
     }
-    public void UnLoadScene(Scenes scene)
-    {
-        SceneManager.UnloadSceneAsync(scene.ToString());
-    }
-    
+    // public void UnLoadScene(Scenes scene)
+    // {
+    //     UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(scene.ToString());
+    // }
+    //
     public bool CheckLoadScene(string scene)
     {
-        return SceneManager.GetSceneByName(scene).isLoaded;
+        return UnityEngine.SceneManagement.SceneManager.GetSceneByName(scene).isLoaded;
     }
-    public bool CheckLoadScene(Scenes scene)
-    {
-        return SceneManager.GetSceneByName(scene.ToString()).isLoaded;
-    }
+    // public bool CheckLoadScene(Scenes scene)
+    // {
+    //     return UnityEngine.SceneManagement.SceneManager.GetSceneByName(scene.ToString()).isLoaded;
+    // }
     
     //씬 전환
     public void CheckChangeScene(Collider2D other, int num)

@@ -112,14 +112,14 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         //씬 로드 이벤트에 OnSceneLoaded 핸들로 추가
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     //게임매니저가 비활성화 되었을때
     private void OnDisable()
     {
         //씬 로드 이벤트에 OnSceneLoaded 제거
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     //씬 로드될때 실행되는 이벤트
@@ -173,32 +173,32 @@ public class GameManager : MonoBehaviour
     //Esc 메뉴 무한 체크
     public void Update()
     {
-        if (isSpeedRun && !CheckLoadScene(Scenes.MainMenu) && !CheckLoadScene(Scenes.EndingScene) &&!CheckLoadScene(Scenes.SceneLoad) && !isEscMenuView)
-        {
-            totalTime += Time.deltaTime;
-            Debug.Log(totalTime);
-        }
-        
-        
-        if (Input.GetKeyDown(KeyCode.Escape) && !isSettingMenuView && !isLoding)
-        {
-            if (CheckLoadScene(Scenes.MainMenu))
-            {
-                return;
-            }
-            isEscMenuView = !isEscMenuView;
-            if (isEscMenuView)
-            {
-                PauseGame();
-                GameObject canvas = GameObject.FindGameObjectWithTag("canvas");
-                CreatedEscMenu = Instantiate(EscMenuObj, canvas.transform, false);
-            }
-            else
-            {
-                ResumeGame();
-                Destroy(CreatedEscMenu);
-            }
-        }
+        // if (isSpeedRun && !CheckLoadScene(Scenes.MainMenu) && !CheckLoadScene(Scenes.EndingScene) &&!CheckLoadScene(Scenes.SceneLoad) && !isEscMenuView)
+        // {
+        //     totalTime += Time.deltaTime;
+        //     Debug.Log(totalTime);
+        // }
+        //
+        //
+        // if (Input.GetKeyDown(KeyCode.Escape) && !isSettingMenuView && !isLoding)
+        // {
+        //     if (CheckLoadScene(Scenes.MainMenu))
+        //     {
+        //         return;
+        //     }
+        //     isEscMenuView = !isEscMenuView;
+        //     if (isEscMenuView)
+        //     {
+        //         PauseGame();
+        //         GameObject canvas = GameObject.FindGameObjectWithTag("canvas");
+        //         CreatedEscMenu = Instantiate(EscMenuObj, canvas.transform, false);
+        //     }
+        //     else
+        //     {
+        //         ResumeGame();
+        //         Destroy(CreatedEscMenu);
+        //     }
+        // }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -285,29 +285,29 @@ public class GameManager : MonoBehaviour
         SL.ChangeLevel(l,mode);
     }
 
-    public void ChangeScene(Scenes scene, LoadSceneMode mode)
-    {
-        SL.ChangeScene(scene,mode);
-    }
+    // public void ChangeScene(Scenes scene, LoadSceneMode mode)
+    // {
+    //     SL.ChangeScene(scene,mode);
+    // }
 
     public void UnLoadScene(string scene)
     {
         SL.UnLoadScene(scene);
     }
-    public void UnLoadScene(Scenes scene)
-    {
-        SL.UnLoadScene(scene);
-    }
+    // public void UnLoadScene(Scenes scene)
+    // {
+    //     SL.UnLoadScene(scene);
+    // }
 
     public bool CheckLoadScene(string scene)
     {
         return SL.CheckLoadScene(scene);
     }
 
-    public bool CheckLoadScene(Scenes scene)
-    {
-        return SL.CheckLoadScene(scene);
-    }
+    // public bool CheckLoadScene(Scenes scene)
+    // {
+    //     return SL.CheckLoadScene(scene);
+    // }
 
     public void SaveLevel(int level)
     {

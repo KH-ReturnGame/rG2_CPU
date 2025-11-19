@@ -112,6 +112,6 @@ public class EndingScene : MonoBehaviour
 
     public void Main_Btn()
     {
-        GameManager.Instance.ChangeScene(Scenes.MainMenu,LoadSceneMode.Single);
+        //GameManager.Instance.ChangeScene(Scenes.MainMenu,LoadSceneMode.Single);
     }
 }

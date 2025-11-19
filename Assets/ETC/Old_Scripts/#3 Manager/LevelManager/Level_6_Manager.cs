@@ -19,7 +19,7 @@ public class Level_6_Manager : MonoBehaviour
         if ((other.CompareTag("Body") ) && !GameManager.Instance.CheckLoadScene("EndingScene") &&
             (GameObject.FindWithTag("Player").GetComponent<Player>().IsContainState(PlayerStats.IsCombine)))
         {
-            GameManager.Instance.ChangeScene(Scenes.EndingScene,LoadSceneMode.Single);
+            //GameManager.Instance.ChangeScene(Scenes.EndingScene,LoadSceneMode.Single);
         }
 
         if(other.CompareTag("Arrow")||((other.CompareTag("Body") || other.CompareTag("Head")) && !GameObject.FindWithTag("Player").GetComponent<Player>().IsContainState(PlayerStats.IsCombine)))

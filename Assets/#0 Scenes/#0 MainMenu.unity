@@ -1034,6 +1034,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 520235464}
   m_CullTransparentMesh: 1
+--- !u!1 &887496149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 887496151}
+  - component: {fileID: 887496150}
+  m_Layer: 0
+  m_Name: Provider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &887496150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887496149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b43360b9c045c592501b0b4537f1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameState
+  stage: 0
+  playType: normal
+  isTutorial: 1
+--- !u!4 &887496151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887496149}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1035.2543, y: 545.1959, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1046444289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,6 +1287,7 @@ MonoBehaviour:
   Start_Target: {fileID: 1728432950}
   Normal_Target: {fileID: 1378574005}
   Speedrun_Target: {fileID: 1527706819}
+  Loding_Scene: {fileID: 102900000, guid: a5536a51f3bb54cd9a344cbd63879c9f, type: 3}
 --- !u!1 &1258899732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,7 +1504,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1567460648}
   - component: {fileID: 1567460649}
-  - component: {fileID: 1567460650}
   m_Layer: 0
   m_Name: Injector
   m_TagString: Untagged
@@ -1491,18 +1538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e490de740b8484ca699a5708222fb51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DependencyInjection.Injector
---- !u!114 &1567460650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567460647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23f1cb3a52bb44dca611d8e071617c95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MoveUI
 --- !u!1 &1728432949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,6 +1648,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783504283}
   m_CullTransparentMesh: 1
+--- !u!1 &1987407748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1987407749}
+  - component: {fileID: 1987407750}
+  m_Layer: 0
+  m_Name: Provider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1987407749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987407748}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1987407750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987407748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f1cb3a52bb44dca611d8e071617c95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoveUI
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1622,3 +1701,5 @@ SceneRoots:
   - {fileID: 401420272}
   - {fileID: 1046444292}
   - {fileID: 1114300495}
+  - {fileID: 1987407749}
+  - {fileID: 887496151}

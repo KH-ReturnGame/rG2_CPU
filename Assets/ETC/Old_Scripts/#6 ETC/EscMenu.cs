@@ -22,7 +22,7 @@ public class EscMenu : MonoBehaviour
     {
         SettingButton.onClick.AddListener(() => { GameManager.Instance.ToggleSettingMenu(); });
         MainmenuButton.onClick.AddListener(() => { 
-            GameManager.Instance.ChangeScene(Scenes.MainMenu, LoadSceneMode.Single);
+            //GameManager.Instance.ChangeScene(Scenes.MainMenu, LoadSceneMode.Single);
             GameManager.Instance.isEscMenuView = false;
             GameManager.Instance.isPaused = false;
             GameManager.inst.isPlayGame = false;

@@ -2,11 +2,14 @@ using System;
 using System.Collections;
 using DependencyInjection;
 using DG.Tweening;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 class MainMenu : MonoBehaviour
 {
+    // 버튼 오브젝트
     public GameObject StartBtn;
     public GameObject NormalBtn;
     public GameObject SpeedrunBtn;
@@ -15,12 +18,20 @@ class MainMenu : MonoBehaviour
     public Transform Normal_Target;
     public Transform Speedrun_Target;
 
+    // 애니메이션 관련 설정
     private float duration = 0.235f;
     private Ease ease = Ease.OutCubic;
     private bool StartButtonToggle = false;
     
+    // 주입
     [Inject] private MoveUI _moveUI;
+    [Inject] private GameState _gameState;
 
+    // 이동할 씬 가져오기
+    public SceneAsset Loding_Scene;
+    
+    
+    
     private void Start()
     {
         StartBtn.GetComponent<Button>().onClick.AddListener(ClickStartBtn);
@@ -73,11 +84,13 @@ class MainMenu : MonoBehaviour
     
     private void ClickNormalBtn()
     {
-        
+        _gameState.targetScene = GameState.targetState.InGame;
+        SceneManager.LoadScene(Loding_Scene.name);
     }
     
     private void ClickSpeedrunBtn()
     {
-        
+        _gameState.targetScene = GameState.targetState.InGame;
+        SceneManager.LoadScene(Loding_Scene.name);
     }
 }
