@@ -46,9 +46,9 @@ public class ArrowController : MonoBehaviour
     //기본 초기화
     public void Start()
     {
-        _arrow = player.GetPlayerObj(PlayerObj.Arrow);
+        // _arrow = player.GetPlayerObj(PlayerObj.Arrow);
         _arrowRigidbody = _arrow.GetComponent<Rigidbody2D>();
-        _head = player.GetPlayerObj(PlayerObj.Head);
+        // _head = player.GetPlayerObj(PlayerObj.Head);
         _spriteRenderer = _arrow.GetComponent<SpriteRenderer>();
         
         _velocity[0] = new Vector2(0, 0);
@@ -209,10 +209,10 @@ public class ArrowController : MonoBehaviour
             int arrowLayerMask = 1 << layer1; // "Arrow" 레이어의 LayerMask 비트값
 
             // 기존 ColliderMask 값을 가져옴
-            int currentMask =player.GetPlayerObj(PlayerObj.Body).GetComponent<PlatformEffector2D>().colliderMask;
+            // int currentMask =player.GetPlayerObj(PlayerObj.Body).GetComponent<PlatformEffector2D>().colliderMask;
             
-            currentMask &= ~arrowLayerMask;
-            player.GetPlayerObj(PlayerObj.Body).GetComponent<PlatformEffector2D>().colliderMask = currentMask;
+            // currentMask &= ~arrowLayerMask;
+            // player.GetPlayerObj(PlayerObj.Body).GetComponent<PlatformEffector2D>().colliderMask = currentMask;
         }
         //중간
         else
@@ -372,13 +372,13 @@ public class ArrowController : MonoBehaviour
         
         int arrowLayerMask = 1 << layer1; // "Arrow" 레이어의 LayerMask 비트값
 
-        // 기존 ColliderMask 값을 가져옴
-        int currentMask = player.GetPlayerObj(PlayerObj.Body).GetComponent<PlatformEffector2D>().colliderMask;
-            
-        currentMask |= arrowLayerMask; // 추가
-        player.GetPlayerObj(PlayerObj.Body).GetComponent<PlatformEffector2D>().colliderMask = currentMask;
-        
-        Time.timeScale = 1f;
+        // // 기존 ColliderMask 값을 가져옴
+        // int currentMask = player.GetPlayerObj(PlayerObj.Body).GetComponent<PlatformEffector2D>().colliderMask;
+        //     
+        // currentMask |= arrowLayerMask; // 추가
+        // player.GetPlayerObj(PlayerObj.Body).GetComponent<PlatformEffector2D>().colliderMask = currentMask;
+        //
+        // Time.timeScale = 1f;
     }
 
     private void OnTriggerExit2D(Collider2D other)

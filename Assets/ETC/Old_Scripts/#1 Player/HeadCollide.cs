@@ -21,7 +21,7 @@ public class HeadCollide : MonoBehaviour
 
     public void Start()
     {
-        _head = player.GetPlayerObj(PlayerObj.Head);
+        // _head = player.GetPlayerObj(PlayerObj.Head);
     }
 
     public void Update()
@@ -77,7 +77,7 @@ public class HeadCollide : MonoBehaviour
             Debug.Log("밀쳐");
 
             // 플레이어의 Rigidbody2D 가져오기
-            headRigidbody = player.GetPlayerObj(PlayerObj.Head).GetComponent<Rigidbody2D>();
+            // headRigidbody = player.GetPlayerObj(PlayerObj.Head).GetComponent<Rigidbody2D>();
             if (headRigidbody == null)
             {
                 Debug.LogError("플레이어에 Rigidbody2D가 필요합니다.");
@@ -85,7 +85,7 @@ public class HeadCollide : MonoBehaviour
             }
  
             dcol = other.gameObject.GetComponent<Collider2D>();
-            colliders = player.GetPlayerObj(PlayerObj.Head).GetComponents<Collider2D>();
+            // colliders = player.GetPlayerObj(PlayerObj.Head).GetComponents<Collider2D>();
             foreach (Collider2D col in colliders)
             {
                 Physics2D.IgnoreCollision(col, dcol, true);
@@ -93,7 +93,7 @@ public class HeadCollide : MonoBehaviour
 
             // 부드럽게 이동하는 코루틴 시작
             Vector3 targetPos = new Vector3(
-                (other.transform.position.x < player.GetPlayerObj(PlayerObj.Head).transform.position.x) ? other.transform.position.x + door.push * 1.6f : other.transform.position.x - door.push * 1.6f,
+                // (other.transform.position.x < player.GetPlayerObj(PlayerObj.Head).transform.position.x) ? other.transform.position.x + door.push * 1.6f : other.transform.position.x - door.push * 1.6f,
                 other.transform.position.y, other.transform.position.z);
             StartCoroutine(MoveToPosition(targetPos, moveDuration));
             return;

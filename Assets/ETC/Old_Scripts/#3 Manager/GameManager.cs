@@ -328,13 +328,13 @@ public class GameManager : MonoBehaviour
         useArrow = usearrow;
         
         Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        player.GetPlayerObj(PlayerObj.Head).GetComponent<Transform>().position = head.position;
-        player.GetPlayerObj(PlayerObj.Body).GetComponent<Transform>().position = body.position;
-        player.GetPlayerObj(PlayerObj.Arrow).GetComponent<Transform>().position = arrow.position;
-        
-        player.GetPlayerObj(PlayerObj.Head).SetActive(usehead);
-        player.GetPlayerObj(PlayerObj.Body).SetActive(usebody);
-        player.GetPlayerObj(PlayerObj.Arrow).SetActive(false);
+        // player.GetPlayerObj(PlayerObj.Head).GetComponent<Transform>().position = head.position;
+        // player.GetPlayerObj(PlayerObj.Body).GetComponent<Transform>().position = body.position;
+        // player.GetPlayerObj(PlayerObj.Arrow).GetComponent<Transform>().position = arrow.position;
+        //
+        // player.GetPlayerObj(PlayerObj.Head).SetActive(usehead);
+        // player.GetPlayerObj(PlayerObj.Body).SetActive(usebody);
+        // player.GetPlayerObj(PlayerObj.Arrow).SetActive(false);
         //player.GetPlayerObj(PlayerObj.Arrow).SetActive(usearrow);
 
         if (PlayerPrefs.GetInt("level")!=1 &&CheckLoadScene("Level_" + (PlayerPrefs.GetInt("level") - 1)))

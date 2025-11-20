@@ -1,0 +1,102 @@
+using System;
+using DependencyInjection;
+using PlayerOwnedStates;
+using UnityEngine;
+
+public enum PlayerStats
+{
+    BodyIsGround=0,
+    HeadIsGround,
+    CanControlArrow,
+    IsOnClick,
+    IsFly,
+    IsArrowOnWall,
+    IsCollisionMethod2,
+    IsCollision,
+    CanShoot,
+    CanCombine,
+    IsCombine,
+    Push,
+    HasArrow,
+}
+
+public enum PlayerObj
+{
+    Body=0,
+    Head,
+    Arrow,
+}
+
+public class Player : MonoBehaviour, IDependencyProvider
+{
+    //플레이어가 가질 수 있는 모든 상태 개수
+    private static readonly int StateCount = Enum.GetValues(typeof(PlayerStats)).Length;
+    //플레이어가 가질 수 있는 모든 상태들 배열
+    private State<Player>[] _states;
+    private StateManager<Player> _stateManager;
+    
+    //머리,몸,화살 오브젝트
+    public GameObject Body;
+    public GameObject Head;
+    public GameObject Arrow;
+
+    //
+    public string controlObj = "d";
+    
+    [Provide]
+    public Player ProvidePlayer()
+    {
+        return this;
+    }
+    
+    //기본 설정
+    public void Start()
+    {
+        //_states 초기화
+        _states = new State<Player>[StateCount];
+        _states[(int)PlayerStats.BodyIsGround] = new BodyIsGround();
+        _states[(int)PlayerStats.HeadIsGround] = new HeadIsGround();
+        _states[(int)PlayerStats.CanControlArrow] = new CanControlArrow();
+        _states[(int)PlayerStats.IsOnClick] = new IsOnClick();
+        _states[(int)PlayerStats.IsFly] = new IsFly();
+        _states[(int)PlayerStats.IsArrowOnWall] = new IsArrowOnWall();
+        _states[(int)PlayerStats.IsCollisionMethod2] = new IsCollisionMethod2();
+        _states[(int)PlayerStats.IsCollision] = new IsCollision();
+        _states[(int)PlayerStats.CanShoot] = new CanShoot();
+        _states[(int)PlayerStats.CanCombine] = new CanCombine();
+        _states[(int)PlayerStats.IsCombine] = new IsCombine();
+        _states[(int)PlayerStats.Push] = new Push();
+        _states[(int)PlayerStats.HasArrow] = new HasArrow();
+        
+        
+        _stateManager = new StateManager<Player>();
+        _stateManager.Setup(this,StateCount,_states);
+        AddState(PlayerStats.CanShoot);
+    }
+    
+    //업데이트 메소드
+    public void Update()
+    {
+        //상태 매니저의 Execute실행
+        _stateManager.Execute();
+    }
+
+    //상태 추가 메소드
+    public void AddState(PlayerStats ps)
+    {
+        State<Player> newState = _states[(int)ps];
+        _stateManager.AddState(newState);
+    }
+    
+    //상태 제거 메소드
+    public void RemoveState(PlayerStats ps)
+    {
+        State<Player> remState = _states[(int)ps];
+        _stateManager.RemoveState(remState);
+    }
+    //상태 있는지 체크
+    public bool IsContainState(PlayerStats ps)
+    {
+        return _stateManager._currentState.Contains(_states[(int)ps]);
+    }
+}
