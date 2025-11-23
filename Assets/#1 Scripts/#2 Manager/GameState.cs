@@ -1,6 +1,13 @@
 using DependencyInjection;
 using UnityEngine;
 
+public enum ControlableObj
+{
+    Body = 0,
+    Head,
+    Arrow,
+}
+
 public class GameState : Singleton<GameState>, IDependencyProvider
 {
     [Provide]
@@ -22,7 +29,9 @@ public class GameState : Singleton<GameState>, IDependencyProvider
     public bool isSpeedrun = false;
     public targetState targetScene = targetState.InGame;
     public int targetArea = 0;
-
+    public ControlableObj controlObj = ControlableObj.Body;
+    
+    
     void Awake()
     {
         DontDestroyOnLoad(gameObject);

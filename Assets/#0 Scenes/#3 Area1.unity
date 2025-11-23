@@ -293,8 +293,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 265717008}
-  - component: {fileID: 265717009}
   - component: {fileID: 265717010}
+  - component: {fileID: 265717009}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -329,13 +329,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 265717007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed5042a509b1410f8a1e7e1a9e6e86f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 645e7b9cbea44bceba92454317debd74, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
-  Body: {fileID: 513007930}
-  Head: {fileID: 1901106639}
-  Arrow: {fileID: 220240481}
-  controlObj: d
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
 --- !u!114 &265717010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,9 +341,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 265717007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a357f43a4534d50b9553b4f3076dd9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1246b78707204906abb9abac11a426a3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  Body: {fileID: 513007930}
+  Head: {fileID: 1901106639}
+  Arrow: {fileID: 220240481}
 --- !u!1 &513007930
 GameObject:
   m_ObjectHideFlags: 0

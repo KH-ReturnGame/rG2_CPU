@@ -29,19 +29,16 @@ public enum PlayerObj
 
 public class Player : MonoBehaviour, IDependencyProvider
 {
-    //플레이어가 가질 수 있는 모든 상태 개수
+    // 플레이어가 가질 수 있는 모든 상태 개수
     private static readonly int StateCount = Enum.GetValues(typeof(PlayerStats)).Length;
-    //플레이어가 가질 수 있는 모든 상태들 배열
+    // 플레이어가 가질 수 있는 모든 상태들 배열
     private State<Player>[] _states;
     private StateManager<Player> _stateManager;
     
-    //머리,몸,화살 오브젝트
+    // 머리,몸,화살 오브젝트
     public GameObject Body;
     public GameObject Head;
     public GameObject Arrow;
-
-    //
-    public string controlObj = "d";
     
     [Provide]
     public Player ProvidePlayer()
