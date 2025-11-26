@@ -91,6 +91,7 @@ public class Player : MonoBehaviour, IDependencyProvider
         State<Player> remState = _states[(int)ps];
         _stateManager.RemoveState(remState);
     }
+
     //상태 있는지 체크
     public bool IsContainState(PlayerStats ps)
     {

@@ -24,12 +24,14 @@ public class GameState : Singleton<GameState>, IDependencyProvider
 
     [Header("PlayInfo")] 
     public int currentArea = 0;
-    public string playType = "normal";
     public bool isTutorial = true;
     public bool isSpeedrun = false;
+    public ControlableObj controlObj = ControlableObj.Body;
+    
+    [Header("SceneInfo")]
     public targetState targetScene = targetState.InGame;
     public int targetArea = 0;
-    public ControlableObj controlObj = ControlableObj.Body;
+    
     
     
     void Awake()
