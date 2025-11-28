@@ -25,7 +25,10 @@ public class GameState : Singleton<GameState>, IDependencyProvider
     public int currentArea = 0;
     public bool isTutorial = true;
     public bool isSpeedrun = false;
+    
+    [Header("PlayerInfo")]
     public ControlableObj controlObj = ControlableObj.Body;
+    public bool isControlArrow = false;
     
     [Header("SceneInfo")]
     public targetState targetScene = targetState.InGame;
