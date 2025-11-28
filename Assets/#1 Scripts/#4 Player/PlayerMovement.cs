@@ -4,24 +4,28 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Player 주입 받기
+    //주입 받기
     [Inject] private Player player;
+    [Inject] private GameState gameState;
     
     public void OnChangeControlObj(InputAction.CallbackContext context) 
     {
         if (context.started)
         {
-            Debug.Log("Start");
+            gameState.controlObj += 1;
+            if ((int)gameState.controlObj >= System.Enum.GetValues(typeof(ControlableObj)).Length)
+            {
+                gameState.controlObj = 0;
+            }
+            Debug.Log(gameState.controlObj);
         }
-        else if (context.canceled)
-        {
-            Debug.Log("Cancled");
-        }
-        else
-        {
-            Debug.Log("None");
-        }
-
-        Debug.Log("ㅗㅗㅗ");
+        // else if (context.canceled)
+        // {
+        //     Debug.Log("Cancled");
+        // }
+        // else
+        // {
+        //     Debug.Log("None");
+        // }
     }
 }

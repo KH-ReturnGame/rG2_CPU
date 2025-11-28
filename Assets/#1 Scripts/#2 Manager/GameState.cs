@@ -5,7 +5,6 @@ public enum ControlableObj
 {
     Body = 0,
     Head,
-    Arrow,
 }
 
 public class GameState : Singleton<GameState>, IDependencyProvider
