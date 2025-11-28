@@ -335,6 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   movementSpeed: 6
   rotationSpeed: 10
+  jumpForce: 10
   playerRigidbody:
   - {fileID: 513007935}
   - {fileID: 1901106642}

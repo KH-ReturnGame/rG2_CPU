@@ -33,11 +33,11 @@ public class GameState : Singleton<GameState>, IDependencyProvider
     [Header("SceneInfo")]
     public targetState targetScene = targetState.InGame;
     public int targetArea = 0;
-    
-    
-    
-    void Awake()
+
+
+    protected override void Awake()
     {
+        base.Awake();
         DontDestroyOnLoad(gameObject);
     }
 }

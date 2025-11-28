@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private float _movementInputDirection;
     public float movementSpeed;
     public float rotationSpeed;
+    public float jumpForce;
     
     //플레이어 정보
     private Rigidbody2D _nowRigidbody;
@@ -68,5 +69,15 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _movementInputDirection = context.ReadValue<Vector2>().x;
+    }
+    
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (((int)gameState.controlObj==0 && player.IsContainState(PlayerStats.BodyIsGround))||
+            ((int)gameState.controlObj==1 && player.IsContainState(PlayerStats.HeadIsGround)))
+        {
+            _nowRigidbody.linearVelocity = new Vector2(_nowRigidbody.linearVelocity.x, 0);
+            _nowRigidbody.linearVelocity = new Vector2(_nowRigidbody.linearVelocity.x, jumpForce);
+        }
     }
 }
