@@ -73,11 +73,14 @@ public class PlayerMovement : MonoBehaviour
     
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (((int)gameState.controlObj==0 && player.IsContainState(PlayerStats.BodyIsGround))||
-            ((int)gameState.controlObj==1 && player.IsContainState(PlayerStats.HeadIsGround)))
+        if (context.started)
         {
-            _nowRigidbody.linearVelocity = new Vector2(_nowRigidbody.linearVelocity.x, 0);
-            _nowRigidbody.linearVelocity = new Vector2(_nowRigidbody.linearVelocity.x, jumpForce);
+            if (((int)gameState.controlObj==0 && player.IsContainState(PlayerStats.BodyIsGround))||
+                ((int)gameState.controlObj==1 && player.IsContainState(PlayerStats.HeadIsGround)))
+            {
+                _nowRigidbody.linearVelocity = new Vector2(_nowRigidbody.linearVelocity.x, 0);
+                _nowRigidbody.linearVelocity = new Vector2(_nowRigidbody.linearVelocity.x, jumpForce);
+            }
         }
     }
 }

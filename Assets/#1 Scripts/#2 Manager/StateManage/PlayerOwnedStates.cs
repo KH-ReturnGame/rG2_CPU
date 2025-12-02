@@ -6,7 +6,7 @@ namespace PlayerOwnedStates
     {
         public override void Enter(Player player)
         {
-            
+            Debug.Log("BodyIsGround Enter");
         }
         public override void Execute(Player player)
         {
@@ -14,7 +14,7 @@ namespace PlayerOwnedStates
         }
         public override void Exit(Player player)
         {
-            
+            Debug.Log("BodyIsGround Exit");
         }
     }
     public class HeadIsGround : State<Player>
