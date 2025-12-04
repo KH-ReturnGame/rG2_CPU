@@ -6,12 +6,12 @@ using UnityEngine;
 public class PlayerColide : MonoBehaviour
 {
     [Inject] Player player;
-
-    private void OnCollisionEnter2D(Collision2D other)
+    
+    private void OnTriggerEnter2D(Collider2D other)
     {
         tag = gameObject.tag;
-
-        if (other.transform.CompareTag("Ground"))
+        
+        if (other.transform.CompareTag("Ground") || other.transform.CompareTag("Body") || other.transform.CompareTag("Head"))
         {
             switch (tag)
             {
@@ -21,8 +21,6 @@ public class PlayerColide : MonoBehaviour
                 case "Body":
                     player.AddState(PlayerStats.BodyIsGround);
                     break;
-                case "Arrow":
-                    break;
                 default:
                     Debug.Log("default");
                     break;
@@ -30,11 +28,11 @@ public class PlayerColide : MonoBehaviour
         }
     }
 
-    public void OnCollisionExit2D(Collision2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         tag = gameObject.tag;
 
-        if (other.transform.CompareTag("Ground"))
+        if (other.transform.CompareTag("Ground") || other.transform.CompareTag("Body") || other.transform.CompareTag("Head"))
         {
             switch (tag)
             {
@@ -43,8 +41,6 @@ public class PlayerColide : MonoBehaviour
                     break;
                 case "Body":
                     player.RemoveState(PlayerStats.BodyIsGround);
-                    break;
-                case "Arrow":
                     break;
                 default:
                     Debug.Log("default");

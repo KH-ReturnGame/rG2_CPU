@@ -14,7 +14,8 @@ public class PlayerMovement : MonoBehaviour
     private float _movementInputDirection;
     public float movementSpeed;
     public float rotationSpeed;
-    public float jumpForce;
+    public float body_jumpForce;
+    public float head_jumpForce;
     
     //플레이어 정보
     private Rigidbody2D _nowRigidbody;
@@ -37,6 +38,11 @@ public class PlayerMovement : MonoBehaviour
         
             // 또는 부드럽게 보간하고 싶으면 아래처럼 (선택사항)
             // _nowRigidbody.angularVelocity = Mathf.Lerp(_nowRigidbody.angularVelocity, targetAngularVelocity, rotationSmoothness * Time.fixedDeltaTime);
+
+            if (!player.IsContainState(PlayerStats.HeadIsGround))
+            {
+                _nowRigidbody.linearVelocity = new Vector2(_movementInputDirection * movementSpeed, _nowRigidbody.linearVelocity.y);
+            }
         }
         else if (gameState.controlObj == ControlableObj.Body)
         {
@@ -75,11 +81,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.started)
         {
-            if (((int)gameState.controlObj==0 && player.IsContainState(PlayerStats.BodyIsGround))||
-                ((int)gameState.controlObj==1 && player.IsContainState(PlayerStats.HeadIsGround)))
+            if ((int)gameState.controlObj==0 && player.IsContainState(PlayerStats.BodyIsGround))
             {
                 _nowRigidbody.linearVelocity = new Vector2(_nowRigidbody.linearVelocity.x, 0);
-                _nowRigidbody.linearVelocity = new Vector2(_nowRigidbody.linearVelocity.x, jumpForce);
+                _nowRigidbody.linearVelocity = new Vector2(_nowRigidbody.linearVelocity.x, body_jumpForce);
+            }
+            else if ((int)gameState.controlObj == 1 && player.IsContainState(PlayerStats.HeadIsGround))
+            {
+                _nowRigidbody.linearVelocity = new Vector2(_nowRigidbody.linearVelocity.x, 0);
+                _nowRigidbody.linearVelocity = new Vector2(_nowRigidbody.linearVelocity.x, head_jumpForce);
             }
         }
     }
