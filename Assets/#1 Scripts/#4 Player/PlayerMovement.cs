@@ -30,18 +30,21 @@ public class PlayerMovement : MonoBehaviour
     {
         if (gameState.controlObj == ControlableObj.Head)
         {
-            // 입력 방향에 따라 목표 각속도 설정 (예: 오른쪽 입력 → 시계 방향 회전)
-            float targetAngularVelocity = -_movementInputDirection * rotationSpeed * 100;
-        
-            // 바로 적용 (즉시 반응 원하면 이렇게)
-            _nowRigidbody.angularVelocity = targetAngularVelocity;
-        
-            // 또는 부드럽게 보간하고 싶으면 아래처럼 (선택사항)
-            // _nowRigidbody.angularVelocity = Mathf.Lerp(_nowRigidbody.angularVelocity, targetAngularVelocity, rotationSmoothness * Time.fixedDeltaTime);
-
             if (!player.IsContainState(PlayerStats.HeadIsGround))
             {
                 _nowRigidbody.linearVelocity = new Vector2(_movementInputDirection * movementSpeed, _nowRigidbody.linearVelocity.y);
+            }
+            else
+            {
+                // 입력 방향에 따라 목표 각속도 설정 (예: 오른쪽 입력 → 시계 방향 회전)
+                float targetAngularVelocity = -_movementInputDirection * rotationSpeed * 50;
+        
+                // 바로 적용 (즉시 반응 원하면 이렇게)
+                _nowRigidbody.angularVelocity = targetAngularVelocity;
+        
+                // 또는 부드럽게 보간하고 싶으면 아래처럼 (선택사항)
+                // _nowRigidbody.angularVelocity = Mathf.Lerp(_nowRigidbody.angularVelocity, targetAngularVelocity, rotationSmoothness * Time.fixedDeltaTime);
+
             }
         }
         else if (gameState.controlObj == ControlableObj.Body)

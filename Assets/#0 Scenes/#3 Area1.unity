@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   movementSpeed: 13
-  rotationSpeed: 10
+  rotationSpeed: 18
   body_jumpForce: 20
   head_jumpForce: 25
   playerRigidbody:
@@ -817,7 +817,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.922, y: 0.04740101}
+  m_Size: {x: 0.9, y: 0.04740101}
   m_EdgeRadius: 0
 --- !u!1 &593720404
 GameObject:
@@ -4125,7 +4125,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.48
+  m_Radius: 0.45
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
