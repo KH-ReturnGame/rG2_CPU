@@ -20,9 +20,6 @@ public class PlayerMovement : MonoBehaviour
     //플레이어 정보
     private Rigidbody2D _nowRigidbody;
     public List<Rigidbody2D> playerRigidbody;
-    
-    // 회전 보상용
-    public Rigidbody2D child; // 인스펙터에서 할당
 
     private void Start()
     {
@@ -42,7 +39,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 float targetAngularVelocity = -_movementInputDirection * rotationSpeed * 50;
                 _nowRigidbody.angularVelocity = targetAngularVelocity;
-                child.angularVelocity = -_nowRigidbody.angularVelocity;
             }
         }
         else if (gameState.controlObj == ControlableObj.Body)

@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using DependencyInjection;
 using DG.Tweening;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -27,8 +29,14 @@ class MainMenu : MonoBehaviour
     [Inject] private MoveUI _moveUI;
     [Inject] private GameState _gameState;
 
-    // 이동할 씬 가져오기
+    // 이동할 씬 가져오기 (Editor only)
+#if UNITY_EDITOR
     public SceneAsset Loding_Scene;
+#endif
+    
+    // 런타임용 씬 이름
+    [HideInInspector, SerializeField]
+    private string _lodingSceneName;
     
     
     
@@ -85,12 +93,20 @@ class MainMenu : MonoBehaviour
     private void ClickNormalBtn()
     {
         _gameState.targetScene = GameState.targetState.InGame;
-        SceneManager.LoadScene(Loding_Scene.name);
+        SceneManager.LoadScene(_lodingSceneName);
     }
     
     private void ClickSpeedrunBtn()
     {
         _gameState.targetScene = GameState.targetState.InGame;
-        SceneManager.LoadScene(Loding_Scene.name);
+        SceneManager.LoadScene(_lodingSceneName);
     }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (Loding_Scene != null)
+            _lodingSceneName = Loding_Scene.name;
+    }
+#endif
 }
