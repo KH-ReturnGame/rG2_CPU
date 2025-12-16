@@ -330,8 +330,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 513007932}
-  - {fileID: 1901106640}
   - {fileID: 220240485}
+  - {fileID: 1007095257}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &265717009
@@ -347,12 +347,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   movementSpeed: 13
-  rotationSpeed: 18
+  rotationSpeed: 22
   body_jumpForce: 20
   head_jumpForce: 25
   playerRigidbody:
   - {fileID: 513007935}
   - {fileID: 1901106642}
+  child: {fileID: 1665742722}
 --- !u!114 &265717010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1690,6 +1691,38 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
+--- !u!1 &1007095256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1007095257}
+  m_Layer: 0
+  m_Name: Head
+  m_TagString: Head
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1007095257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007095256}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1901106640}
+  m_Father: {fileID: 265717008}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1101393715
 GameObject:
   m_ObjectHideFlags: 0
@@ -3821,6 +3854,7 @@ GameObject:
   - component: {fileID: 1665742719}
   - component: {fileID: 1665742720}
   - component: {fileID: 1665742721}
+  - component: {fileID: 1665742722}
   m_Layer: 0
   m_Name: HeadColide
   m_TagString: Head
@@ -3908,11 +3942,38 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1665742717}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 883a017f7333496bb48f3ccdef60e105, type: 3}
+  m_Script: {fileID: 11500000, guid: 1003214e9bcc4d38903d0df2973b57ba, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FollowPositionOnly
+  m_EditorClassIdentifier: Assembly-CSharp::FollowObj
+--- !u!50 &1665742722
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665742717}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0.5
+  m_AngularDamping: 1
+  m_GravityScale: 5
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 3
 --- !u!1001 &1808252029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3997,13 +4058,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901106639}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1665742718}
-  m_Father: {fileID: 265717008}
+  m_Father: {fileID: 1007095257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1901106642
 Rigidbody2D:

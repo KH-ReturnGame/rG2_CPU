@@ -16,10 +16,16 @@ public class PlayerColide : MonoBehaviour
             switch (tag)
             {
                 case "Head":
-                    player.AddState(PlayerStats.HeadIsGround);
+                    if (!other.transform.CompareTag("Head"))
+                    {
+                        player.AddState(PlayerStats.HeadIsGround);
+                    }
                     break;
                 case "Body":
-                    player.AddState(PlayerStats.BodyIsGround);
+                    if (!other.transform.CompareTag("Body"))
+                    {
+                        player.AddState(PlayerStats.BodyIsGround);
+                    }
                     break;
                 default:
                     Debug.Log("default");
@@ -37,10 +43,16 @@ public class PlayerColide : MonoBehaviour
             switch (tag)
             {
                 case "Head":
-                    player.RemoveState(PlayerStats.HeadIsGround);
+                    if (!other.transform.CompareTag("Head"))
+                    {
+                        player.RemoveState(PlayerStats.HeadIsGround);
+                    }
                     break;
                 case "Body":
-                    player.RemoveState(PlayerStats.BodyIsGround);
+                    if (!other.transform.CompareTag("Body"))
+                    {
+                        player.RemoveState(PlayerStats.BodyIsGround);
+                    }
                     break;
                 default:
                     Debug.Log("default");
