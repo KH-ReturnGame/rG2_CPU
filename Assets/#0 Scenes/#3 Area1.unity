@@ -349,7 +349,7 @@ MonoBehaviour:
   movementSpeed: 13
   rotationSpeed: 22
   body_jumpForce: 20
-  head_jumpForce: 25
+  head_jumpForce: 24
   playerRigidbody:
   - {fileID: 513007935}
   - {fileID: 1901106642}
