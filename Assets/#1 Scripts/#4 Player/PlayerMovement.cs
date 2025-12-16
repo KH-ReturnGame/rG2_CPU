@@ -44,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
                 _nowRigidbody.angularVelocity = targetAngularVelocity;
                 child.angularVelocity = -_nowRigidbody.angularVelocity;
             }
-            child.position = _nowRigidbody.position;
         }
         else if (gameState.controlObj == ControlableObj.Body)
         {
