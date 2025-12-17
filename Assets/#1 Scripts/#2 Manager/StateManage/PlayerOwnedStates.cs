@@ -6,7 +6,7 @@ namespace PlayerOwnedStates
     {
         public override void Enter(Player player)
         {
-            //Debug.Log("BodyIsGround Enter");
+            player.body_animator.SetTrigger("endJump");
         }
         public override void Execute(Player player)
         {

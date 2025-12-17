@@ -40,6 +40,9 @@ public class Player : MonoBehaviour, IDependencyProvider
     public GameObject Head;
     public GameObject Arrow;
     
+    // 애니메이터
+    public Animator body_animator;
+    
     [Provide]
     public Player ProvidePlayer()
     {

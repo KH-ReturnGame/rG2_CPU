@@ -368,6 +368,7 @@ MonoBehaviour:
   Body: {fileID: 513007930}
   Head: {fileID: 1901106639}
   Arrow: {fileID: 220240481}
+  body_animator: {fileID: 513007936}
 --- !u!114 &265717011
 MonoBehaviour:
   m_ObjectHideFlags: 0
