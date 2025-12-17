@@ -353,7 +353,6 @@ MonoBehaviour:
   playerRigidbody:
   - {fileID: 513007935}
   - {fileID: 1901106642}
-  child: {fileID: 1665742722}
 --- !u!114 &265717010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3923,7 +3922,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0026400685, y: -0.36961186}
+  m_Offset: {x: 0.0026400685, y: -0.46}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
