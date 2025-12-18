@@ -14,7 +14,7 @@ namespace PlayerOwnedStates
         }
         public override void Exit(Player player)
         {
-            //Debug.Log("BodyIsGround Exit");
+
         }
     }
     public class HeadIsGround : State<Player>
