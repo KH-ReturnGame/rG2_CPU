@@ -7,6 +7,10 @@ public class PlayerColide : MonoBehaviour
 {
     [Inject] Player player;
     
+    private int head_collideCount;
+
+    private int body_collideCount;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         tag = gameObject.tag;
@@ -19,12 +23,14 @@ public class PlayerColide : MonoBehaviour
                     if (!other.transform.CompareTag("Head"))
                     {
                         player.AddState(PlayerStats.HeadIsGround);
+                        head_collideCount++;
                     }
                     break;
                 case "Body":
                     if (!other.transform.CompareTag("Body"))
                     {
                         player.AddState(PlayerStats.BodyIsGround);
+                        body_collideCount++;
                     }
                     break;
                 default:
@@ -45,13 +51,21 @@ public class PlayerColide : MonoBehaviour
                 case "Head":
                     if (!other.transform.CompareTag("Head"))
                     {
-                        player.RemoveState(PlayerStats.HeadIsGround);
+                        head_collideCount--;
+                        if (head_collideCount == 0)
+                        {
+                            player.RemoveState(PlayerStats.HeadIsGround);
+                        }
                     }
                     break;
                 case "Body":
                     if (!other.transform.CompareTag("Body"))
                     {
-                        player.RemoveState(PlayerStats.BodyIsGround);
+                        body_collideCount--;
+                        if (body_collideCount == 0)
+                        {
+                            player.RemoveState(PlayerStats.BodyIsGround);
+                        }
                     }
                     break;
                 default:
