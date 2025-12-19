@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
 using DependencyInjection;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Singleton<PlayerMovement>, IDependencyProvider
 {
     //주입 받기
     [Inject] private Player player;
@@ -18,9 +19,15 @@ public class PlayerMovement : MonoBehaviour
     public float head_jumpForce;
     
     //플레이어 정보
-    private Rigidbody2D _nowRigidbody;
+    public Rigidbody2D _nowRigidbody;
     public List<Rigidbody2D> playerRigidbody;
 
+    [Provide]
+    public PlayerMovement ProvidePlayerMovement()
+    {
+        return this;
+    }
+    
     private void Start()
     {
         _nowRigidbody = playerRigidbody[(int)gameState.controlObj];

@@ -23,7 +23,7 @@ public class GameState : Singleton<GameState>, IDependencyProvider
 
     [Header("PlayInfo")] 
     public int currentArea = 0;
-    public bool isTutorial = true;
+    public bool isTutorial = false;
     public bool isSpeedrun = false;
     
     [Header("PlayerInfo")]
