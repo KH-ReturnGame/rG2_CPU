@@ -350,6 +350,7 @@ MonoBehaviour:
   rotationSpeed: 30
   body_jumpForce: 20
   head_jumpForce: 24
+  _nowRigidbody: {fileID: 0}
   playerRigidbody:
   - {fileID: 513007935}
   - {fileID: 1901106642}
@@ -2321,7 +2322,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
