@@ -183,11 +183,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FootHoldButton
   isToggle: 1
-  downDirection: X
+  downDirection: Y
   flip: 1
   SignalType: 0
   oneUse: 0
   onOnly: 0
-  canClickArrow: 1
+  canClickArrow: 0
   Signal: 0
   downObj: []

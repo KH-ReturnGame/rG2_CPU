@@ -684,7 +684,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 8511286986285458780, guid: cc0b50c0602ff4c7cad42bec9bc4bbe2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2191,7 +2191,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1407252785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 560cd03cc4d04bc98ddfbd23d3b02c8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1205a68e29124ade9bfdc727a1165a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SignalManager
 --- !u!1 &1470392618
@@ -4346,7 +4346,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 202038403, guid: 59d355b7dfec74621a4aa54514127bdf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -616,7 +616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
   SignalType: 0
-  DoorType: Rotate
+  DoorType: UpDown
   RotateType: 0
   xyType: 0
   push: 1
