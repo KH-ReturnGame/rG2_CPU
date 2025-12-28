@@ -20,7 +20,7 @@ public class PlayerColide : MonoBehaviour
     {
         tag = gameObject.tag;
         
-        if (other.transform.CompareTag("Ground") || other.transform.CompareTag("Body") || other.transform.CompareTag("Head"))
+        if (other.transform.CompareTag("Ground") || other.transform.CompareTag("Body") || other.transform.CompareTag("Head") || other.transform.CompareTag("Door"))
         {
             switch (tag)
             {
@@ -49,7 +49,7 @@ public class PlayerColide : MonoBehaviour
     {
         tag = gameObject.tag;
 
-        if (other.transform.CompareTag("Ground") || other.transform.CompareTag("Body") || other.transform.CompareTag("Head"))
+        if (other.transform.CompareTag("Ground") || other.transform.CompareTag("Body") || other.transform.CompareTag("Head") || other.transform.CompareTag("Door"))
         {
             switch (tag)
             {
